@@ -42,7 +42,7 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", function (event) {
     event.respondWith(
         caches.open(cacheName)
-        .then(function (cache) { return cache.match(e.request, { ignoreSearch: true }); })
-        .then(function (response) { return response || fetch(e.request); })
+        .then(function (cache) { return cache.match(event.request, { ignoreSearch: true }); })
+        .then(function (response) { return response || fetch(event.request); })
     );
 });
