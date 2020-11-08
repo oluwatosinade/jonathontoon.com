@@ -66,7 +66,7 @@
 		_canvasBuffer = document.getElementById("canvas").getContext("2d");
 		_cube = document.getElementById("cube");
 
-		_faceSize = 672;
+		_faceSize = 768;
 	};
 
 	const _handleWindowLoad = () => {
