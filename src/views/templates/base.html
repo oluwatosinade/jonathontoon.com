@@ -64,23 +64,17 @@
 		<!-- Web Manifest  -->
 		<link rel="manifest" href="jonathontoon.webmanifest">
 
-		<!-- CSS -->
-		<link type="text/css" rel="stylesheet" media="all" href="bundle.min.css">
-
 		<!-- Preload Fonts -->
 		<link rel="preload" as="font" type="font/woff" crossorigin href="fonts/Inter-Bold.woff"> 
-		<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Inter-Bold.woff2"> 
+		<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Inter-Bold.woff2">
 		
-		<!-- Preload CSS -->
-		<link rel="preload" as="style" href="bundle.min.css">
-		
-		<!-- Preload Javascript -->
-		<link rel="preload" as="script" href="bundle.min.js">
+		<!-- CSS -->
+		<link type="text/css" rel="stylesheet" media="all" href="bundle.min.css" inline>
 	</head>
 	<body>
 		{% block content %}{% endblock %}
         <!-- Javascript -->
-		<script type="text/javascript" src="bundle.min.js"></script>
+		<script type="text/javascript" src="bundle.min.js" inline></script>
         <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
