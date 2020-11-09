@@ -92,7 +92,7 @@ const settings = {
     // Make sure this feature is activated before running
     if (!settings.html) done();
   
-    const buildDate = new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const buildDate = new Date().toLocaleDateString("en-AU", { timeZone: "Australia/Sydney", weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
     return gulp.src(paths.html.input)
       .pipe(nunjucksRender({
@@ -223,7 +223,7 @@ const settings = {
   
     browserSync.notify("Reloading site...");
     browserSync.reload();
-      done();
+    done();
   };
   
   // Watch for changes
