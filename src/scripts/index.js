@@ -4,7 +4,7 @@
 
 (() => {
 	"use strict";
-	
+
 	/*
 		Variables
 	*/
@@ -18,7 +18,7 @@
 		[1, 3, 4]
 	];
 
-	
+
 	const _faceNames = [
 		"Top",
 		"Front",
@@ -28,10 +28,10 @@
 		"Bottom"
 	];
 
-	let _canvasBuffer = undefined;
+	const _faceSize = 768;
 
-	let _faceSize = undefined;
-	let _cube = undefined;
+	let _canvasBuffer = undefined;
+	let _cubeElement = undefined;
 
 	/*
 		Functions
@@ -55,7 +55,7 @@
 
 		const imageData = new ImageData(imageSrc, _faceSize, _faceSize);
 		_canvasBuffer.putImageData(imageData, 0, 0);
-		
+
 		const image = new Image(_faceSize, _faceSize);
 		image.src = canvas.toDataURL("image/png");
 
@@ -64,16 +64,12 @@
 
 	const _handleDOMContentLoaded = () => {
 		_canvasBuffer = document.getElementById("canvas").getContext("2d");
-		_cube = document.getElementById("cube");
+		_cubeElement = document.getElementById("cube");
 
-		_faceSize = 768;
-	};
-
-	const _handleWindowLoad = () => {
 		_faceRules.map(_generateFace).forEach(function (img, i) {
 			img.classList.add(`face-${i}`);
 			img.setAttribute("alt", `Cube Face ${_faceNames[i]}`);
-			_cube.appendChild(img);
+			_cubeElement.appendChild(img);
 		});	
 	};
 
@@ -82,6 +78,5 @@
 	*/
 
 	document.addEventListener("DOMContentLoaded", _handleDOMContentLoaded, false);
-	window.addEventListener("load", _handleWindowLoad, false);
-
+	
 })();
