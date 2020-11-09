@@ -1,9 +1,9 @@
-/**
-  Settings
-  Turn on/off build features
-**/
+  /**
+    Settings
+    Turn on/off build features
+  **/
 
-const settings = {
+  const settings = {
     clean: true,
     html: true,
       scripts: true,
