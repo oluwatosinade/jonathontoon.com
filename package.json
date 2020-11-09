@@ -1,13 +1,13 @@
 {
     "name": "jonathontoon.com",
     "version": "1.0.0",
-    "description": "A simple static contact page.",
+    "description": "A simple static personal web page.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/jonathontoon/starter-kit.git"
+        "url": "https://github.com/jonathontoon/jonathontoon.com.git"
     },
     "bugs": {
-        "url": "https://github.com/jonathontoon/starter-kit/issues"
+        "url": "https://github.com/jonathontoon/jonathontoon.com/issues"
     },
     "private": true,
     "engineStrict": true,
