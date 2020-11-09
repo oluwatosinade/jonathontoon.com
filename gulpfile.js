@@ -48,24 +48,23 @@ const settings = {
   const gulp = require("gulp");
   const rename = require("gulp-rename");
   const size = require("gulp-size");
-  const cache = require("gulp-cache");  
+  const cache = require("gulp-cache");
   const del = require("del");
   
   // HTML
   const nunjucksRender = require("gulp-nunjucks-render");
   const htmlMinimizer = require("gulp-html-minimizer");
+  const inlinesource = require("gulp-inline-source");  
   
   // Scripts
   const esbuild = require("gulp-esbuild");
   
   // Styles
-  const cssvariables = require("postcss-css-variables");
   const cssimport = require("postcss-import");
   const concat = require("gulp-concat");
   const postcss = require("gulp-postcss");
   const autoprefixer = require("autoprefixer");
   const cssnano = require("cssnano");
-  const purgecss = require("@fullhuman/postcss-purgecss");
   
   // BrowserSync
   const browserSync = require("browser-sync").create();
@@ -103,6 +102,9 @@ const settings = {
           },
           path: paths.html.nunjunks,
           watch: false,
+      }))
+      .pipe(inlinesource({
+        rootpath: paths.output
       }))
       .pipe(htmlMinimizer({
         removeComments: true,
@@ -208,12 +210,10 @@ const settings = {
   // Build task
   const buildTask = gulp.series(
     cleanPublic,
-    gulp.parallel(
-      buildStyles,
-      buildScripts,
-      buildHTML,
-      copyStaticAssets
-    )
+    buildStyles,
+    buildScripts,
+    buildHTML,
+    copyStaticAssets
   );
   
   // Reload the browser when files change
