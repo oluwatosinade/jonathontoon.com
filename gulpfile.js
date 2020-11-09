@@ -184,6 +184,18 @@ const settings = {
   
   };
   
+  // Remove unused content from output folders
+  function postCleanPublic(done) {
+      // Make sure this feature is activated before running
+      if (!settings.clean) done();
+
+      // Signal completion
+      return del([
+        `${paths.output}/bundle.min.css`,
+        `${paths.output}/bundle.min.js`
+      ]);
+  };
+
   // Watch for changes to the src directory
   function startServer(done) {
       // Make sure this feature is activated before running
@@ -213,7 +225,8 @@ const settings = {
     buildStyles,
     buildScripts,
     buildHTML,
-    copyStaticAssets
+    copyStaticAssets,
+    postCleanPublic
   );
   
   // Reload the browser when files change
