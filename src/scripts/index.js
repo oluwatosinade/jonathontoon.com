@@ -1,5 +1,6 @@
 /*
-	Adapted from this initial codepen https://codepen.io/roborich/pen/wRMKaK
+	Adapted from a codepen by Rich Howell
+	https://codepen.io/roborich/pen/wRMKaK
 */
 
 (() => {
@@ -54,7 +55,8 @@
 			imageSrc[r] = ruleMap[ruleR];
 			imageSrc[g] = ruleMap[ruleG];
 			imageSrc[b] = ruleMap[ruleB];
-      // Static alpha channel.
+      			
+			// Static alpha channel.
 			imageSrc[a] = 130;
 		}
 
@@ -70,10 +72,11 @@
 	};
 
 	const _handleDOMContentLoaded = () => {
+		// Initialize variables.
 		_canvasBuffer = document.getElementById("canvas").getContext("2d");
 		_cubeElement = document.getElementById("cube");
 
-    // Add attributes to each image element.
+    		// Add attributes to each image element.
 		_faceRules.map(_generateFace).forEach(function (img, i) {
 			img.classList.add(`face-${i}`);
 			img.setAttribute("alt", `Cube Face ${_faceNames[i]}`);
