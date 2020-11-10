@@ -39,15 +39,21 @@
 	*/
 
 	const _generateFace = ([ruleR, ruleG, ruleB]) => {
-		// Create unsigned array to represent image data.
+		// Create unsigned array to represent image data for each cube side.
 		const imageSrc = new Uint8ClampedArray(_faceSize * _faceSize * 4);
 
 		// Iterate over image array.
 		for (let i = 0; i < imageSrc.length; i += 4) {
 			// Create offset for each channel.
 			const [r, g, b, a] = [i, i + 1, i + 2, i + 3];
+
+			// Determine which face is being rendered
 			const pixelI = i / 4;
+
+			// Determine column of face
 			const col = pixelI  % _faceSize;
+
+			// Determine row of face
 			const row = Math.floor(pixelI / _faceSize);
 			const ruleMap = [0, col, row, 0xFF, 0xFF - row, 0xFF - col];
 
@@ -64,7 +70,7 @@
 		const imageData = new ImageData(imageSrc, _faceSize, _faceSize);
 		_canvasBuffer.putImageData(imageData, 0, 0);
 
-		// Extract image from canvas and render it to image element.
+		// Extract image data from canvas and render it to image element.
 		const image = new Image(_faceSize, _faceSize);
 		image.src = canvas.toDataURL("image/png");
 
