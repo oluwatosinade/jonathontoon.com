@@ -82,7 +82,7 @@
 		_canvasBuffer = document.getElementById("canvas").getContext("2d");
 		_cubeElement = document.getElementById("cube");
 
-    		// Add attributes to each image element.
+    	// Add attributes to each image element.
 		_faceRules.map(_generateFace).forEach(function (img, i) {
 			img.classList.add(`face-${i}`);
 			img.setAttribute("alt", `Cube Face ${_faceNames[i]}`);
@@ -95,5 +95,4 @@
 	*/
 
 	document.addEventListener("DOMContentLoaded", _handleDOMContentLoaded, false);
-	
 })();
