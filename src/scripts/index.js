@@ -80,7 +80,10 @@
 
 	const _handleDOMContentLoaded = () => {
 		// Initialize variables.
-		_canvasElement = document.getElementById("canvas");
+		_canvasElement = document.createElement("canvas");
+		_canvasElement.setAttribute("width", "256");
+		_canvasElement.setAttribute("height", "256");
+
 		_canvasBuffer = _canvasElement.getContext("2d");
 		_cubeElement = document.getElementById("cube");
 
