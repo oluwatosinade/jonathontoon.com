@@ -31,6 +31,7 @@
 
 	const _faceSize = 768;
 
+	let _canvasElement = undefined;
 	let _canvasBuffer = undefined;
 	let _cubeElement = undefined;
 
@@ -72,14 +73,15 @@
 
 		// Extract image data from canvas and render it to image element.
 		const image = new Image(_faceSize, _faceSize);
-		image.src = canvas.toDataURL("image/png");
+		image.src = _canvasElement.toDataURL("image/png");
 
 		return image;
 	};
 
 	const _handleDOMContentLoaded = () => {
 		// Initialize variables.
-		_canvasBuffer = document.getElementById("canvas").getContext("2d");
+		_canvasElement = document.getElementById("canvas");
+		_canvasBuffer = _canvasElement.getContext("2d");
 		_cubeElement = document.getElementById("cube");
 
     	// Add attributes to each image element.
