@@ -1,4 +1,4 @@
-const cacheName = "jonathontoon";
+const cacheName = "jonathontoon-1.1.0";
 
 self.addEventListener("install", function (event) {
     event.waitUntil(
