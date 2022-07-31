@@ -2,4 +2,5 @@
 
 A simple, static, personal website to justify the money spent on a domain. Built using an opinionated combination of Gulp, Esbuild, postCSS and Nunjuck templates.
 
-![portfolio](https://user-images.githubusercontent.com/1197942/116023995-a8a7c200-a690-11eb-92e2-95b367e2c81f.PNG)
+<img width="1125" alt="portfolio" src="https://user-images.githubusercontent.com/1197942/182023146-5fad5dcc-955b-470e-9510-2fdae8a27abb.png">
+
