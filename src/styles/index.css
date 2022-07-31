@@ -1,41 +1,16 @@
 /* Reset */
 @import url("reset.css");
 
-@font-face {
-        font-family: "Inter";
-        font-style:  normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("../fonts/Inter-Bold.woff2") format("woff2"),
-                url("../fonts/Inter-Bold.woff") format("woff");
-}
-
-@keyframes spin {
-  0% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  50% {
-    transform: rotateY(360deg) rotateX(180deg);
-  }
-  100% {
-    transform: rotateY(720deg) rotateX(360deg);
-  }
-}
-
 :root {
   --background-color: #dddddd;
   --primary-text-color: #000000;
   --secondary-text-color: #333333;
   --link-text-color: #111111;
-
-  --face-size: 256px;
-  --face-offset: calc(var(--face-size) / 2);
-  --face-offset-reverse: calc((var(--face-size) / 2) * -1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #1e1e22;
+    --background-color: #0F0F11;
     --primary-text-color: #ffffff;
     --secondary-text-color: #AAAAAA;
     --link-text-color: #CCCCCC;
@@ -59,8 +34,7 @@ html, body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1.0rem;
   font-weight: normal;
   line-height: 1.5;
@@ -78,16 +52,15 @@ h1, h2 {
 }
 
 h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 p {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 p, ul, a, span {
   color: var(--secondary-text-color);
-  font-family: "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, "Times New Roman", serif;
   letter-spacing: -0.01em;
 }
 
@@ -118,67 +91,19 @@ header, article {
   margin-bottom: 3rem;
 }
 
+img {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 2rem;
+}
+
 footer {
   font-size: 0.75rem;
   margin-bottom: 4rem;
 }
 
-#visual {
-  position: absolute;
-  top: -70px;
-  left: -70px;
-  width: var(--face-size);
-  height: var(--face-size);
-  transform: scale(0.25);
-}
-
-#cube {
-  position: relative;
-  width: var(--face-size);
-  animation: spin 10s linear infinite;
-  transform-style: preserve-3d;
-  transform-origin: var(--face-offset) var(--face-offset);
-  user-select: none;
-  pointer-events: none;
-}
-
-#cube img {
-  position: absolute;
-  width: var(--face-size);
-  height: var(--face-size);
-}
-
-#cube .face-1 {
-  transform: translateZ(var(--face-offset));
-}
-
-#cube .face-3 {
-  transform: translateZ(var(--face-offset-reverse)) rotateY(180deg);
-}
-
-#cube .face-2 {
-  transform: rotateY(-270deg) translateX(var(--face-offset));
-  transform-origin: top right;
-}
-
-#cube .face-4 {
-  transform: rotateY(270deg) translateX(var(--face-offset-reverse));
-  transform-origin: center left;
-}
-
-#cube .face-0 {
-  transform: rotateX(-90deg) translateY(var(--face-offset-reverse));
-  transform-origin: top center;
-}
-
-#cube .face-5 {
-  transform: rotateX(90deg) translateY(var(--face-offset));
-  transform-origin: bottom center;
-}
-
 #information {
   position: absolute;
-  top: 180px;
 }
 
 #projects ul li {
@@ -190,6 +115,10 @@ footer {
     font-size: 1.5rem;
   }
   
+  h2 {
+    margin-bottom: 1rem;
+  }
+
   main {
     margin: 5rem;
     margin-top: 6rem;
@@ -200,9 +129,9 @@ footer {
     margin-bottom: 5rem;
   }
 
-  #information {
-    position: absolute;
-    top: 200px;
+  img {
+    max-width: 180px;
+    margin-bottom: 4rem;
   }
 
   footer {
