@@ -92,6 +92,7 @@ header, article {
 }
 
 img {
+  background-color: var(--primary-text-color);
   width: 100%;
   max-width: 120px;
   margin-bottom: 2rem;
@@ -130,6 +131,7 @@ footer {
   }
 
   img {
+    background-color: var(--primary-text-color);
     max-width: 180px;
     margin-bottom: 4rem;
   }
